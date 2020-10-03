@@ -155,7 +155,7 @@ var controller={
             }//fin si no hay  el articulo updateado
 
             return res.status(200).send({
-                status:'Updateado',
+                status:'success',
                 articleUpdata
             })
         })
@@ -215,16 +215,22 @@ var controller={
         else
         {
             var articleId=req.params.id;
-
-            Article.findOneAndUpdate({_id:articleId},{image:path_split},{new:true},(err,updateado)=>{
-
+            if(articleId){
+                Article.findOneAndUpdate({_id:articleId},{image:path_split},{new:true},(err,updateado)=>{
+    
+                    return res.status(200).send({
+                        status:'Success',
+                        updateado,
+                         message:'subido con exito'
+                     })
+    
+                })    
+            }else{
                 return res.status(200).send({
                     status:'Success',
-                    updateado,
-                     message:'subido con exito'
+                    image:path_split
                  })
-
-            })
+            }
 
         }
 

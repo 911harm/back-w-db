@@ -1,5 +1,6 @@
 'use strict'
 var mongoose= require('mongoose');
+require('dotenv').config({path:'variables.env'})
 var url= process.env.DB_URL || 'mongodb://localhost:27017/test1';
 var app= require('./app');
 var port =process.env.PORT || '9300';

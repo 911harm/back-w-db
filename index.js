@@ -15,5 +15,6 @@ mongoose.connect(url,{useNewUrlParser:true}).then(()=>{
     //crear servidor y escucha
     app.listen(port,host,()=>{
         console.log("Servidor corriendo en "+host+port)
+        
     })
 });
